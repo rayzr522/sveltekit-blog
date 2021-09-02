@@ -1,4 +1,4 @@
-import { verifyAndDecodeJwt } from '$lib/jwt'
+import { verifyAndDecodeJwt } from '$lib/server/jwt'
 import cookie from 'cookie'
 
 const getUser = (request) => {
@@ -8,11 +8,13 @@ const getUser = (request) => {
     }
 }
 
+/** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ request, resolve }) {
     request.locals.session = getUser(request)
     return await resolve(request)
 }
 
+/** @type {import('@sveltejs/kit').GetSession} */
 export async function getSession(request) {
     return {
         user: getUser(request),

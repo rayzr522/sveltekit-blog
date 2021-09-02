@@ -1,5 +1,5 @@
-import { signJwt } from '$lib/jwt'
-import { getUsersCollection } from '$lib/mongo'
+import { signJwt } from '$lib/server/jwt'
+import { getUsersCollection } from '$lib/server/mongo'
 import bcrypt from 'bcrypt'
 
 export async function post(request) {

@@ -1,4 +1,4 @@
-import { getUsersCollection } from '$lib/mongo'
+import { getUsersCollection } from '$lib/server/mongo'
 import bcrypt from 'bcrypt'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
