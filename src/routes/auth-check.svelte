@@ -14,8 +14,9 @@
     }
 </script>
 
-<h1>About</h1>
-<p>What's up?</p>
+<svelte:head>
+    <title>Auth Check</title>
+</svelte:head>
 
 {#if error}
     <p class="error">{error}</p>

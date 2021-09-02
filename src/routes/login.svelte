@@ -53,6 +53,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>Login</title>
+</svelte:head>
+
 <main>
     <h1>Login</h1>
     {#if error}

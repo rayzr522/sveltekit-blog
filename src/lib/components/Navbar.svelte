@@ -7,7 +7,7 @@
 <nav>
     <h1>Blog</h1>
     <NavbarItem href="/">Home</NavbarItem>
-    <NavbarItem href="/about">About</NavbarItem>
+    <NavbarItem href="/auth-check">Auth Check</NavbarItem>
     <div>
         {#if !$user}
             <NavbarItem
@@ -32,8 +32,8 @@
         color: var(--fg-primary);
         display: flex;
         align-items: center;
-        gap: 0.5em;
-        padding: 0.5em;
+        gap: 1em;
+        padding: 0.5em 1em;
         border: 1px solid var(--fg-primary);
         border-radius: 3px;
     }
@@ -42,5 +42,6 @@
     }
     nav h1 {
         margin: 0;
+        text-transform: uppercase;
     }
 </style>
