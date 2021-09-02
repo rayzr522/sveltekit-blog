@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store'
 import cookie from 'cookie'
-// import { decodeJwt } from './jwt'
 
 const createUserStore = () => {
     const store = writable(null)
@@ -22,6 +21,7 @@ const createUserStore = () => {
 
     return {
         subscribe: store.subscribe,
+        _set: store.set,
         refresh,
         logout,
     }

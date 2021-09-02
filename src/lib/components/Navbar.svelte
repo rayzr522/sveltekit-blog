@@ -8,13 +8,11 @@
     <h1>Blog</h1>
     <NavbarItem href="/">Home</NavbarItem>
     <NavbarItem href="/auth-check">Auth Check</NavbarItem>
-    <div>
-        {#if !$user}
-            <NavbarItem
-                href="/login?r={encodeURIComponent($page.path.slice(1))}">
-                Login
-            </NavbarItem>
-        {:else}
+    {#if $user}
+        <NavbarItem href="/users/@me/posts">My Posts</NavbarItem>
+        <NavbarItem href="/posts/new">New Post</NavbarItem>
+
+        <div class="end">
             <NavbarItem
                 href=""
                 on:click={(e) => {
@@ -22,8 +20,15 @@
                 }}>
                 Logout ({$user.username})
             </NavbarItem>
-        {/if}
-    </div>
+        </div>
+    {:else}
+        <div class="end">
+            <NavbarItem
+                href="/login?r={encodeURIComponent($page.path.slice(1))}">
+                Login
+            </NavbarItem>
+        </div>
+    {/if}
 </nav>
 
 <style>
@@ -32,12 +37,15 @@
         color: var(--fg-primary);
         display: flex;
         align-items: center;
-        gap: 1em;
+        gap: 1.5em;
         padding: 0.5em 1em;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+        flex-wrap: wrap;
     }
-    nav :last-child {
-        margin-left: auto;
+    .end {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
     }
     nav h1 {
         margin: 0;

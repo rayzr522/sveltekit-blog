@@ -1,9 +1,18 @@
+<script context="module">
+    export function load({ session }) {
+        return { props: { session } }
+    }
+</script>
+
 <script>
+    export let session
+
     import { user } from '$lib/user'
     import Navbar from '$lib/components/Navbar.svelte'
-    import { onMount } from 'svelte'
 
-    onMount(() => user.refresh())
+    if (session.user) {
+        user._set(session.user)
+    }
 </script>
 
 <Navbar />

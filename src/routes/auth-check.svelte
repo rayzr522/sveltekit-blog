@@ -3,7 +3,7 @@
     let error = ''
 
     async function fetchJwt() {
-        const response = await fetch('/api/authenticated')
+        const response = await fetch('/api/session')
 
         if (!response.ok) {
             error = await response.text()

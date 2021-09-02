@@ -13,3 +13,5 @@ export const getMongoClient = async () => {
 export const getDb = async () => (await getMongoClient()).db('app')
 export const getUsersCollection = async () =>
     (await getDb()).collection('users')
+export const getPostsCollection = async () =>
+    (await getDb()).collection('posts')
