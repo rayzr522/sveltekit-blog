@@ -3,7 +3,7 @@ import { getUsersCollection } from '$lib/server/mongo'
 import bcrypt from 'bcrypt'
 
 export async function post(request) {
-    const { username, password } = request.body
+    const { username, password, timezone } = request.body
 
     const usersCollection = await getUsersCollection()
     const existingUser = await usersCollection.findOne({ username })
@@ -27,6 +27,7 @@ export async function post(request) {
     const payload = {
         username: existingUser.username,
         uuid: existingUser.uuid,
+        timezone,
     }
 
     const jwt = signJwt(payload)

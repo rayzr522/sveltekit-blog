@@ -28,19 +28,19 @@ export async function get(request) {
                     localField: 'authorUuid',
                     foreignField: 'uuid',
                     as: 'author',
-                    pipeline: [{ $project: { username: true, uuid: true } }],
+                    pipeline: [
+                        {
+                            $project: {
+                                username: true,
+                                uuid: true,
+                                _id: false,
+                            },
+                        },
+                    ],
                 },
             },
             { $unwind: '$author' },
-            // strip internal mongo IDs
-            {
-                $project: {
-                    _id: false,
-                    author: {
-                        _id: false,
-                    },
-                },
-            },
+            { $project: { _id: false } },
         ])
         .toArray()
 

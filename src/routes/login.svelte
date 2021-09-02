@@ -34,6 +34,7 @@
             body: JSON.stringify({
                 username,
                 password,
+                timezone: new Intl.DateTimeFormat().resolvedOptions().timeZone,
             }),
             headers: {
                 'content-type': 'application/json',

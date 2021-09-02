@@ -14,10 +14,20 @@ export async function get(request) {
                     localField: 'authorUuid',
                     foreignField: 'uuid',
                     as: 'author',
+                    pipeline: [
+                        {
+                            $project: {
+                                username: true,
+                                uuid: true,
+                                _id: false,
+                            },
+                        },
+                    ],
                 },
             },
             { $unwind: '$author' },
             { $limit: 1 },
+            { $project: { _id: false } },
         ])
         .toArray()
 
@@ -27,9 +37,6 @@ export async function get(request) {
             body: 'Post not found',
         }
     }
-
-    delete post._id
-    delete post.author._id
 
     return {
         body: post,

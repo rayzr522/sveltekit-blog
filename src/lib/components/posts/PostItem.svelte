@@ -1,13 +1,14 @@
 <script>
+    import TimezoneDate from '../TimezoneDate.svelte'
+
     export let post
 </script>
 
 <div class="post">
     <a href="/posts/{post.slug}">{post.title}</a>
     <i>
-        @{post.author.username} - {new Date(
-            post.creationTimestamp
-        ).toLocaleString()}
+        @{post.author.username} - <TimezoneDate
+            timestamp={post.creationTimestamp} />
     </i>
 </div>
 
