@@ -11,9 +11,8 @@
 </script>
 
 <script>
+    import Markdown from '$lib/components/markdown/Markdown.svelte'
     import TimezoneDate from '$lib/components/TimezoneDate.svelte'
-
-    import SvelteMarkdown from 'svelte-markdown'
 
     export let post
 </script>
@@ -23,4 +22,6 @@
     Written by <strong>@{post.author.username}</strong> on
     <strong><TimezoneDate timestamp={post.creationTimestamp} /></strong>
 </i>
-<SvelteMarkdown source={post.content} />
+<div>
+    <Markdown source={post.content} />
+</div>
