@@ -5,8 +5,13 @@ export const validatePassword = (password) => {
             passed: password.length >= 8,
         },
         {
-            name: 'Password cannot contain emoji/unicode',
-            passed: /^[ -~]+$/.test(password),
+            name: 'Password must contain at least one number',
+            passed: /[0-9]/.test(password),
+        },
+        {
+            name:
+                'Password must contain at least one special character (#?!@$%^&*-)',
+            passed: /[#?!@$%^&*-]/.test(password),
         },
     ]
 }

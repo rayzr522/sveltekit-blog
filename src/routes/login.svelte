@@ -17,7 +17,9 @@
         requestAnimationFrame(() => usernameField.focus())
     }
 
-    $: canSubmit = username && password
+    $: validationState = signupMode ? validatePassword(password) : []
+    $: validationPassed = validationState.every((rule) => rule.passed)
+    $: canSubmit = username && password && validationPassed
 
     function toggleMode() {
         signupMode = !signupMode
@@ -116,15 +118,15 @@
                 </button>
             {/if}
         </div>
-
-        {#if signupMode}
-            <ul class="password-reqs">
-                {#each validatePassword(password) as rule (rule.name)}
-                    <li class:passed={rule.passed}>{rule.name}</li>
-                {/each}
-            </ul>
-        {/if}
     </form>
+
+    {#if signupMode && password}
+        <ul class="password-reqs">
+            {#each validationState as rule (rule.name)}
+                <li class:passed={rule.passed}>{rule.name}</li>
+            {/each}
+        </ul>
+    {/if}
 </main>
 
 <style>

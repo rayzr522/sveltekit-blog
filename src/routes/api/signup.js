@@ -26,7 +26,7 @@ export async function post(request) {
 
     const hash = await bcrypt.hash(password, 10)
 
-    await getUsersCollection().insertOne({
+    usersCollection.insertOne({
         username,
         hash,
     })
