@@ -37,6 +37,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>New Post</title>
+</svelte:head>
+
 <div class="root">
     {#if error}
         <ErrorMessage>{error}</ErrorMessage>

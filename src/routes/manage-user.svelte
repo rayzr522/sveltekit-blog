@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-    <title>Auth Check</title>
+    <title>Manage User</title>
 </svelte:head>
 
 {#if error}

@@ -17,6 +17,10 @@
     export let post
 </script>
 
+<svelte:head>
+    <title>{post.title} - @{post.author.username}</title>
+</svelte:head>
+
 <h1>{post.title}</h1>
 <i>
     Written by <strong>@{post.author.username}</strong> on

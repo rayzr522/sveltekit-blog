@@ -16,4 +16,8 @@
     export let posts
 </script>
 
+<svelte:head>
+    <title>Latest Posts</title>
+</svelte:head>
+
 <PostList {posts} />

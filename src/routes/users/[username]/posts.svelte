@@ -15,6 +15,7 @@
 
         return {
             props: {
+                username,
                 posts: await fetch(
                     `/api/posts?${page.query}&authorUuid=${user.uuid}`
                 ).then((res) => res.json()),
@@ -26,7 +27,12 @@
 <script>
     import PostList from '$lib/components/posts/PostList.svelte'
 
+    export let username
     export let posts
 </script>
+
+<svelte:head>
+    <title>@{username}'s Posts</title>
+</svelte:head>
 
 <PostList {posts} />
