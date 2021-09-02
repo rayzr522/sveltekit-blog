@@ -1,6 +1,6 @@
 import { getUsersCollection } from '$lib/server/mongo'
 import { validatePassword } from '$lib/shared/validation'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import { v4 as uuid } from 'uuid'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */

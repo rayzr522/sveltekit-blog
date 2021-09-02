@@ -1,6 +1,6 @@
 import { signJwt } from '$lib/server/jwt'
 import { getUsersCollection } from '$lib/server/mongo'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 export async function post(request) {
     const { username, password, timezone } = request.body

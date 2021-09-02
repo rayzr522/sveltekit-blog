@@ -22,7 +22,7 @@
     },
     "type": "module",
     "dependencies": {
-        "bcrypt": "^5.0.1",
+        "bcryptjs": "^2.4.3",
         "cookie": "^0.4.1",
         "dotenv": "^10.0.0",
         "jsonwebtoken": "^8.5.1",
