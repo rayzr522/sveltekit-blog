@@ -34,8 +34,7 @@
         align-items: center;
         gap: 1em;
         padding: 0.5em 1em;
-        border: 1px solid var(--fg-primary);
-        border-radius: 3px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     }
     nav :last-child {
         margin-left: auto;
