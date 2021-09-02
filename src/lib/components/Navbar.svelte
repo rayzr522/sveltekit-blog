@@ -1,10 +1,12 @@
 <script>
+    import { goto } from '$app/navigation'
     import { page, session } from '$app/stores'
     import NavbarItem from './NavbarItem.svelte'
 
     function logout() {
         document.cookie = 'jwt=; Max-Age=0; Path=/;'
         $session.user = null
+        goto('/posts')
     }
 </script>
 
