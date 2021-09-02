@@ -1,4 +1,3 @@
-import fs from 'fs'
 import jwt from 'jsonwebtoken'
 
 export const signJwt = (payload) => {
@@ -22,9 +21,9 @@ export const decodeJwt = (jwtString) => {
 }
 
 export const getPrivateKey = () => {
-    return fs.readFileSync('./jwt.pem')
+    return import.meta.env.VITE_JWT_PRIVATE_KEY
 }
 
 export const getPublicKey = () => {
-    return fs.readFileSync('./jwt.pub')
+    return import.meta.env.VITE_JWT_PUBLIC_KEY
 }
