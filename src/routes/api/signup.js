@@ -1,9 +1,19 @@
 import { getUsersCollection } from '$lib/server/mongo'
+import { validatePassword } from '$lib/shared/validation'
 import bcrypt from 'bcrypt'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {
     const { username, password } = request.body
+
+    const failingRule = validatePassword(password).find((rule) => !rule.passed)
+    if (failingRule) {
+        return {
+            status: 400,
+            body: failingRule.name,
+        }
+    }
+
     const usersCollection = await getUsersCollection()
     const existingUser = await usersCollection.findOne({ username })
 

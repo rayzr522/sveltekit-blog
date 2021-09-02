@@ -20,7 +20,7 @@ export async function post(request) {
     if (!matches) {
         return {
             status: 401,
-            body: 'Bad password!',
+            body: 'Incorrect password!',
         }
     }
 
