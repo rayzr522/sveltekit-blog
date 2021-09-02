@@ -11,7 +11,7 @@
 <nav>
     <h1>Blog</h1>
     <NavbarItem href="/posts">Latest Posts</NavbarItem>
-    <NavbarItem href="/auth-check">Auth Check</NavbarItem>
+    <NavbarItem href="/manage-user">Manage User</NavbarItem>
 
     {#if $session.user}
         <NavbarItem href="/users/{$session.user.username}/posts"
