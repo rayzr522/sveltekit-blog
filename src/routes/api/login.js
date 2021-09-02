@@ -25,7 +25,8 @@ export async function post(request) {
     }
 
     const payload = {
-        username,
+        username: existingUser.username,
+        uuid: existingUser.uuid,
     }
 
     const jwt = signJwt(payload)

@@ -1,13 +1,11 @@
 import { getUsersCollection } from '$lib/server/mongo'
+import { StandardRespones } from '$lib/server/responses'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function post(request) {
     const user = request.locals.session
     if (!user) {
-        return {
-            status: 401,
-            body: 'Unauthorized',
-        }
+        return StandardRespones.UNAUTHORIZED
     }
 
     const usersCollection = await getUsersCollection()

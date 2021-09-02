@@ -1,6 +1,7 @@
 <script>
     import { goto } from '$app/navigation'
     import { page, session } from '$app/stores'
+    import ErrorMessage from '$lib/components/ErrorMessage.svelte'
     import ToggleSwitch from '$lib/components/ToggleSwitch.svelte'
     import { validatePassword } from '$lib/shared/validation'
     import { fade, fly } from 'svelte/transition'
@@ -75,9 +76,9 @@
     <title>Login</title>
 </svelte:head>
 
-<main>
+<div class="root">
     {#if error}
-        <p class="error">{error}</p>
+        <ErrorMessage>{error}</ErrorMessage>
     {/if}
     <div class="mode-toggle">
         <span class:mode-active={!signupMode}>Login</span>
@@ -127,15 +128,15 @@
             {/each}
         </ul>
     {/if}
-</main>
+</div>
 
 <style>
-    main {
+    .root {
         display: flex;
         flex-direction: column;
-        position: absolute;
         align-items: center;
         justify-content: center;
+        position: absolute;
         gap: 1em;
         z-index: -1;
         top: 0;
@@ -153,21 +154,14 @@
         border-radius: 3px;
         padding: 1em;
     }
-
     .group {
         display: flex;
         gap: 0.5em;
         align-items: center;
-        /* width: 100%; */
     }
     .group input {
         margin-left: auto;
-        padding: 0.5em;
-        outline: none;
-        border: 1px solid var(--fg-default);
-        border-radius: 3px;
         background: none;
-        box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
     }
     .buttons {
         flex-grow: 1;
@@ -177,16 +171,6 @@
     .buttons button {
         position: absolute;
         width: 100%;
-        padding: 0.5em;
-        font-size: 1em;
-        border-radius: 3px;
-        border: 1px solid var(--fg-default);
-    }
-    .error {
-        color: var(--fg-primary);
-        background: var(--bg-alert);
-        padding: 0.5em;
-        border-radius: 3px;
     }
     .mode-toggle {
         display: flex;

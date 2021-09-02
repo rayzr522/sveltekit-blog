@@ -37,3 +37,24 @@ body {
     color: var(--fg-secondary);
     border-color: var(--fg-secondary);
 }
+
+button,
+input,
+textarea {
+    padding: 0.5em;
+    font-size: 1em;
+    background: var(--bg-default);
+    color: var(--fg-default);
+    border: 1px solid var(--fg-default);
+    border-radius: 3px;
+    outline: none;
+}
+
+input,
+textarea {
+    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    color: var(--bg-secondary);
+}

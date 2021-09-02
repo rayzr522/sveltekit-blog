@@ -1,5 +1,6 @@
 <script>
     import { session } from '$app/stores'
+    import ErrorMessage from '$lib/components/ErrorMessage.svelte'
 
     let jwt = null
     let error = ''
@@ -32,15 +33,9 @@
 </svelte:head>
 
 {#if error}
-    <p class="error">{error}</p>
+    <ErrorMessage>{error}</ErrorMessage>
 {/if}
 <pre>JWT: {JSON.stringify(jwt)}</pre>
 <button on:click={fetchJwt}>Fetch JWT</button>
 
 <button on:click={deleteUser}>Delete User</button>
-
-<style>
-    .error {
-        color: red;
-    }
-</style>
