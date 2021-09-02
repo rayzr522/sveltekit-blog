@@ -14,7 +14,8 @@
     <NavbarItem href="/auth-check">Auth Check</NavbarItem>
 
     {#if $session.user}
-        <NavbarItem href="/users/@me/posts">My Posts</NavbarItem>
+        <NavbarItem href="/users/{$session.user.username}/posts"
+            >My Posts</NavbarItem>
         <NavbarItem href="/posts/new">New Post</NavbarItem>
 
         <div class="end">

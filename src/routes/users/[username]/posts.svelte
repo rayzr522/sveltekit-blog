@@ -2,12 +2,6 @@
     /** @type {import('@sveltejs/kit').Load}*/
     export async function load({ fetch, page, session }) {
         const { username } = page.params
-        if (username === '@me' && !session.user) {
-            return {
-                status: 307,
-                redirect: '/login',
-            }
-        }
 
         const userResponse = await fetch(`/api/users/${username}`)
         if (!userResponse.ok) {
