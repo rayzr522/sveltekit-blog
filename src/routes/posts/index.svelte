@@ -1,10 +1,10 @@
 <script context="module">
-    export async function load({ fetch, page, session }) {
+    export async function load({ fetch, page }) {
         return {
             props: {
-                posts: await fetch(
-                    `/api/posts?${page.query}&authorUuid=${session.user.uuid}`
-                ).then((res) => res.json()),
+                posts: await fetch(`/api/posts?${page.query}`).then((res) =>
+                    res.json()
+                ),
             },
         }
     }

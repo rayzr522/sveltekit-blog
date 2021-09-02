@@ -10,7 +10,7 @@
 
 <nav>
     <h1>Blog</h1>
-    <NavbarItem href="/">Home</NavbarItem>
+    <NavbarItem href="/posts">Latest Posts</NavbarItem>
     <NavbarItem href="/auth-check">Auth Check</NavbarItem>
 
     {#if $session.user}
