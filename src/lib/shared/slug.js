@@ -10,7 +10,7 @@ const generateRandomSuffix = (length = 8) =>
         .join('')
 
 export const createSlugFromTitle = (title) => {
-    const sanitizedTitle = title.replace(/[^a-zA-Z0-9-]+/, '-').toLowerCase()
+    const sanitizedTitle = title.replace(/[^a-zA-Z0-9-]+/g, '-').toLowerCase()
     const suffix = generateRandomSuffix()
     return `${sanitizedTitle}-${suffix}`
 }
