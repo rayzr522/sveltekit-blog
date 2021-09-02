@@ -1,24 +1,27 @@
 <script>
-    import { page } from '$app/stores'
-    import { user } from '$lib/user'
+    import { page, session } from '$app/stores'
     import NavbarItem from './NavbarItem.svelte'
+
+    function logout() {
+        document.cookie = 'jwt=; Max-Age=0; Path=/;'
+        $session.user = null
+    }
 </script>
 
 <nav>
     <h1>Blog</h1>
     <NavbarItem href="/">Home</NavbarItem>
     <NavbarItem href="/auth-check">Auth Check</NavbarItem>
-    {#if $user}
+
+    {#if $session.user}
         <NavbarItem href="/users/@me/posts">My Posts</NavbarItem>
         <NavbarItem href="/posts/new">New Post</NavbarItem>
 
         <div class="end">
             <NavbarItem
                 href=""
-                on:click={(e) => {
-                    e.preventDefault(), user.logout()
-                }}>
-                Logout ({$user.username})
+                on:click={(e) => (e.preventDefault(), logout())}>
+                Logout ({$session.user.username})
             </NavbarItem>
         </div>
     {:else}

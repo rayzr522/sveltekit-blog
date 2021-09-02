@@ -34,6 +34,6 @@ export async function post(request) {
         headers: {
             'set-cookie': [`jwt=${jwt}; Max-Age=${7 * 24 * 60 * 60}; Path=/;`],
         },
-        body: {},
+        body: payload,
     }
 }

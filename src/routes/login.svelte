@@ -1,8 +1,6 @@
 <script>
     import { goto } from '$app/navigation'
-    import { page } from '$app/stores'
-
-    import { user } from '$lib/user'
+    import { page, session } from '$app/stores'
 
     let username = ''
     let password = ''
@@ -26,8 +24,7 @@
             return
         }
 
-        const loggedInUser = await res.json()
-        user.refresh()
+        $session.user = await res.json()
         goto(`/${$page.query.get('r') || ''}`)
     }
 
